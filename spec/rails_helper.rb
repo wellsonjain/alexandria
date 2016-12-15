@@ -71,9 +71,9 @@ RSpec.configure do |config|
 end
 
 # Configure Shoulda-Matchers
-Shoulda::Matcher.configure do |config|
+Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
-    with.libray :rails
+    with.library :rails
   end
 end
