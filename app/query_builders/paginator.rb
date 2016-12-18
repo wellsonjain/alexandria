@@ -20,6 +20,14 @@ class Paginator
 
   private
 
+  def validate_param!(name, default)
+    return default unless @query_params[name]
+    unless (@query_params[name] =~ /\A\d+\z/)
+      raise QueryBuilderError.new("#{name}=#{@query_params[name]}"), 'Invalid Pagination params. Only numbers are supported for "page" and "per".'
+    end
+    @query_params[name]
+  end
+
   def pages
     @pages ||= {}.tap do |page|
       page[:first] = 1 if show_first_link?
