@@ -30,10 +30,13 @@ RSpec.describe 'Sorter' do
         expect(sorted.first.id).to eq agile_web_dev.id
         expect(sorted.last.id).to eq ruby_microscope.id
       end
+    end
 
+    context 'with valid parameters' do
+      let(:params) { { sort: 'title', dir: 'asc' } }
       it 'sorts the collection by "title asc"' do
         expect(sorted.first.id).to eq agile_web_dev.id
-        expect(sorted.last.id).to eq ruby_microscope.id
+        expect(sorted.last.id).to eq rails_tutorial.id
       end
     end
 
