@@ -1,4 +1,4 @@
-class QueryOrchestrator
+class QueryAdapter
   ACTIONS = [:paginate, :sort, :filter, :eager_load]
 
   def initialize(scope:, params:, request:, response:, actions: :all)

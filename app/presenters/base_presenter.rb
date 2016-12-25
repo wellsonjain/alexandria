@@ -1,29 +1,9 @@
 class BasePresenter
-  # Define Class level instance variable
-  # @relations = []
-  # @sort_attributes = []
-  # @filter_attributes = []
-  # @build_attributes = []
-
-  # class << self
-  #   attr_accessor :relations, :sort_attributes, :filter_attributes, :build_attributes
-
-  #   def build_with(*args)
-  #     @build_attributes = args.map(&:to_s)
-  #   end
-
-  #   def related_to(*args)
-  #     @relations = args.map(&:to_s)
-  #   end
-
-  #   def sort_by(*args)
-  #     @sort_attributes = args.map(&:to_s)
-  #   end
-
-  #   def filter_by(*args)
-  #     @filter_attributes = args.map(&:to_s)
-  #   end
-  # end
+  # * Instance variable 會把帶進來的參數 `(object, params, data)` set
+  #    data 會為 `HashWithIndifferentAccess`
+  # * `#as_json` 把 data serialize 成 JSON
+  # * `.build_with` 定義哪些欄位是被允許用來 build representation，
+  #    並且將其存在 class variable `build_attributes` (array)
 
   CLASS_ATTRIBUTES = {
     build_with: :build_attributes,

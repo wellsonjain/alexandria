@@ -14,8 +14,7 @@ class ApplicationController < ActionController::API
     }
   end
 
-  def orchestrate_query(scope, actions = :all)
-    QueryOrchestrator.new(scope: scope, params: params, request: request, response: response, actions: actions).run
-
+  def adapt_query(scope, actions = :all)
+    QueryAdapter.new(scope: scope, params: params, request: request, response: response, actions: actions).run
   end
 end
